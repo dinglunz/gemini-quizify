@@ -2,7 +2,7 @@ import streamlit as st
 import os
 import sys
 import json
-sys.path.append(os.path.abspath('D:/_DEV/Github Repos/RadicalX/mission-quizify'))
+sys.path.append(os.path.abspath('D:\_DEV\Github Repos\RadicalX\gemini-quizify'))
 from doc_ingestion import DocumentProcessor
 from embedding_client import EmbeddingClient
 from data_pipeline import ChromaCollectionCreator
