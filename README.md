@@ -2,6 +2,10 @@
 
 Quizify is an interactive quiz builder application built using Streamlit and LangChain. It allows users to upload PDF documents, extract content, generate quiz questions based on a specified topic, and navigate through the generated quiz interactively.
 
+# Demo Video
+
+https://www.loom.com/share/59f33fff1b0649ddb7b5f11d9c9a6fd9?sid=50feeab2-01dd-424a-98b4-15b883f0b63d
+
 ## Features
 
 - **PDF Document Ingestion**: Upload multiple PDF files and extract their content.
