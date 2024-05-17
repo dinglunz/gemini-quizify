@@ -9,7 +9,7 @@ class DocumentProcessor:
         self.pages = []  # List to keep track of pages from all documents
 
     def ingest_documents(self):
-        # Step 1: Render a file uploader widget
+        # Render a file uploader widget
         uploaded_files = st.file_uploader(
             "Upload PDF files",
             type=['pdf'],

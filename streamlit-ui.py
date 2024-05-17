@@ -40,7 +40,7 @@ Implementation Guidance:
 """
 
 if __name__ == "__main__":
-    st.header("Quizzify")
+    st.header("Quizify")
 
     # Configuration for EmbeddingClient
     embed_config = {

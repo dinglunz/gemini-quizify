@@ -12,14 +12,7 @@ from langchain_google_vertexai import VertexAI
 
 class QuizGenerator:
     def __init__(self, topic=None, num_questions=1, vectorstore=None):
-        """
-        Initializes the QuizGenerator with a required topic, the number of questions for the quiz,
-        and an optional vectorstore for querying related information.
 
-        :param topic: A string representing the required topic of the quiz.
-        :param num_questions: An integer representing the number of questions to generate for the quiz, up to a maximum of 10.
-        :param vectorstore: An optional vectorstore instance (e.g., ChromaDB) to be used for querying information related to the quiz topic.
-        """
         if not topic:
             self.topic = "General Knowledge"
         else:
@@ -58,9 +51,7 @@ class QuizGenerator:
             """
     
     def init_llm(self):
-        """
-        Initializes and configures the Large Language Model (LLM) for generating quiz questions.
-        """
+        # Initializes and configures the Large Language Model (LLM) for generating quiz questions.
         self.llm = VertexAI(
             model_name="gemini-pro",
             temperature=0.8, # Increased for less deterministic questions 
@@ -68,11 +59,6 @@ class QuizGenerator:
         )
 
     def generate_question_with_vectorstore(self):
-        """
-        Generates a quiz question based on the topic provided using a vectorstore.
-
-        :return: A JSON object representing the generated quiz question.
-        """
         if not self.llm:
             self.init_llm()
         if not self.vectorstore:
@@ -99,9 +85,6 @@ class QuizGenerator:
         return response
 
     def generate_quiz(self) -> list:
-        """
-        Task: Generate a list of unique quiz questions based on the specified topic and number of questions.
-        """
         self.question_bank = [] # Reset the question bank
 
         remaining_questions = self.num_questions
@@ -128,9 +111,6 @@ class QuizGenerator:
         return self.question_bank
 
     def validate_question(self, question: dict) -> bool:
-        """
-        Task: Validate a quiz question for uniqueness within the generated quiz.
-        """
         question_text = question.get("question")
         if not question_text:
             return False
@@ -156,7 +136,7 @@ if __name__ == "__main__":
         processor = DocumentProcessor()
         processor.ingest_documents()
     
-        embed_client = EmbeddingClient(**embed_config) # Initialize from Task 4
+        embed_client = EmbeddingClient(**embed_config)
     
         chroma_creator = ChromaCollectionCreator(processor, embed_client)
     

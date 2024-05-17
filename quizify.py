@@ -42,7 +42,7 @@ if __name__ == "__main__":
             
                 chroma_creator = ChromaCollectionCreator(processor, embed_client)
                 
-                # Step 2: Set topic input and number of questions
+                # Set topic input and number of questions
                 topic_input = st.text_input("Topic for Generative Quiz", placeholder="Enter the topic of the document")
                 questions = st.slider("Number of Questions", min_value=1, max_value=10, value=1)
                     
@@ -54,15 +54,15 @@ if __name__ == "__main__":
                     if len(processor.pages) > 0:
                         st.write(f"Generating {questions} questions for topic: {topic_input}")
                     
-                    # Step 3: Initialize a QuizGenerator class using the topic, number of questions, and the Chroma collection
+                    #  Initialize a QuizGenerator class using the topic, number of questions, and the Chroma collection
                     generator = QuizGenerator(topic_input, questions, chroma_creator.db)
                     question_bank = generator.generate_quiz()
 
-                    # Step 4: Initialize the question bank list in st.session_state
+                    # Initialize the question bank list in st.session_state
                     st.session_state['question_bank'] = question_bank
-                    # Step 5: Set a display_quiz flag in st.session_state to True
+                    # Set a display_quiz flag in st.session_state to True
                     st.session_state['display_quiz'] = True
-                    # Step 6: Set the question_index to 0 in st.session_state
+                    # Set the question_index to 0 in st.session_state
                     st.session_state['question_index'] = 0
 
                     st.experimental_rerun()

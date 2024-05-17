@@ -7,14 +7,7 @@ sys.path.append(os.path.abspath('D:\_DEV\Github Repos\RadicalX\gemini-quizify'))
 
 class QuizGenerator:
     def __init__(self, topic=None, num_questions=1, vectorstore=None):
-        """
-        Initializes the QuizGenerator with a required topic, the number of questions for the quiz,
-        and an optional vectorstore for querying related information.
 
-        :param topic: A string representing the required topic of the quiz.
-        :param num_questions: An integer representing the number of questions to generate for the quiz, up to a maximum of 10.
-        :param vectorstore: An optional vectorstore instance (e.g., ChromaDB) to be used for querying information related to the quiz topic.
-        """
         if not topic:
             self.topic = "General Knowledge"
         else:
@@ -52,9 +45,7 @@ class QuizGenerator:
             """
     
     def init_llm(self):
-        """
-        Task: Initialize the Large Language Model (LLM) for quiz question generation.
-        """
+
         self.llm = VertexAI(
             model="gemini-pro",
             temperature=0.7,
@@ -62,9 +53,7 @@ class QuizGenerator:
         )
         
     def generate_question_with_vectorstore(self):
-        """
-        Task: Generate a quiz question using the topic provided and context from the vectorstore.
-        """
+
         # Initialize the LLM from the 'init_llm' method if not already initialized
         if not self.llm:
             self.init_llm()
